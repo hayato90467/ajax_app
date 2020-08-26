@@ -1,0 +1,2 @@
+class Yahoo < ApplicationRecord
+end
