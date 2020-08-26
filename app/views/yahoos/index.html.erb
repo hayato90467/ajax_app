@@ -1,2 +1,16 @@
-<h1>"新規ページ"</h1>
-<%= @post.each do |post| %>
+<h1>AjaxApp</h1>
+<%= form_with url:  "/yahoos", method: :post,id: "form" do |form| %>
+  <%= form.text_field :content %>
+  <%= form.submit '投稿する' , id: "submit" %>
+<% end %>
+
+<% @yahoos.each do |yahoo| %>
+<div class="yahoo">
+  <div class="yahoo-date">
+    投稿日時：<%= yahoo.created_at %>
+  </div>
+  <div class="yahoo-content">
+    <%= yahoo.content %>
+  </div>
+</div>
+<% end %>

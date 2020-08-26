@@ -1,6 +1,12 @@
 class YahoosController < ApplicationController
 
   def index
-    @post = Post.all
+    @yahoos =Yahoo.all.order(id: "DESC")
   end
-end
+
+  def create
+    Post.create(content: params[:content])
+    redirect_to action: :index
+  end
+ 
+ end
