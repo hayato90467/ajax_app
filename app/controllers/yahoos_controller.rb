@@ -9,4 +9,15 @@ class YahoosController < ApplicationController
     redirect_to action: :index
   end
  
+  def checked
+    yahoo = Yahoo.find(params[:id])
+    if yahoo.checked 
+      yahoo.update(checked: false)
+    else
+      yahoo.update(checked: true)
+    end
+
+    item = Yahoo.find(params[:id])
+    render json: { yahoo: item }
+  end
  end
